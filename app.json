@@ -1,0 +1,46 @@
+{
+  "name": "TG Group Manager Bot",
+  "description": "Production-ready Telegram group management bot with voice/video chat controls, sticker & chat control, moderation tools.",
+  "keywords": ["python", "telegram", "pyrogram", "bot", "group-management"],
+  "repository": "https://github.com/YOUR_USERNAME/tg-group-manager",
+  "stack": "heroku-22",
+  "buildpacks": [
+    { "url": "heroku/python" }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  },
+  "env": {
+    "API_ID": {
+      "description": "Telegram API ID from https://my.telegram.org",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Telegram API HASH from https://my.telegram.org",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Bot token from @BotFather",
+      "required": true
+    },
+    "SESSION_STRING": {
+      "description": "Pyrogram session string for the VC-control assistant account (generate with generate_session.py)",
+      "required": true
+    },
+    "MONGO_DB_URI": {
+      "description": "MongoDB connection URI (e.g. from MongoDB Atlas free tier)",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": "Your numeric Telegram user ID (bot super-admin)",
+      "required": true
+    },
+    "LOG_GROUP_ID": {
+      "description": "Numeric ID of a private group/channel the bot logs actions to (optional)",
+      "required": false
+    }
+  }
+}
